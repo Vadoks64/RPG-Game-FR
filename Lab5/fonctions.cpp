@@ -18,13 +18,32 @@ using namespace std;
 *Rôle: Afficher le message d'introduction et les instructions
 */
 void affichageIntro() {
-	cout << "Bienvenue dans le programme de combats en mode console !" <<"\n"<< endl;
-	cout << "Ce jeu se joue à 2 joueurs 1 contre l'autre." << endl;
-	cout << "Un des joueurs utilisera le prêtre et l'autre le druide." << "\n" << endl;
-	cout << "Après avoir entré le nom de chacun des personnages, vous allez démarrer la partie." << "\n" << endl;
-	cout << "Vous allez devoir combattre jusqu'à ce que le joueur ennemi n'ait plus de point de vie." << endl;
-	cout << "Attention, jouez avec stratégie avec la magie, car vous avez du mana, il est rapidement épuisable." << "\n" << endl;
-	cout << "Bon, assez parlé. Place au combat!" << endl;
+	cout << R"(
+	  __  __ _____ _     _____ _____    ___        
+	 |  \/  | ____| |   | ____| ____|  ( _ )       
+	 | |\/| |  _| | |   |  _| |  _|    / _ \/\     
+	 | |  | | |___| |___| |___| |___  | (_>  <     
+	 |_|  |_|_____|_____|_____|_____|__\___/\/   __
+		 / ___| / _ \|  _ \ / ___| ____|  _ \ \ / /
+		 \___ \| | | | |_) | |   |  _| | |_) \ V / 
+		  ___) | |_| |  _ <| |___| |___|  _ < | |  
+		 |____/ \___/|_| \_\\____|_____|_| \_\|_|  
+                                               
+                                               )"
+		<< "\n";
+	system("PAUSE");
+	system("cls");
+	cout << R"( 
+*******************************************************************************************************
+* Bienvenue dans mon jeu de combat en mode console !                                                  *
+*                                                                                                     *
+* Vous pouvez choisir d'incarner 3 rôles :                                                            *
+* 1 - Un guerrier qui possède beaucoup d'endurance et de puissantes attaques physiques.               *
+* 2 - Un prêtre qui possède des pouvoirs de guérison, une bonne arme et une bonne endurance.          *
+* 3 - Un druide moins endurant qui peut également se guérir et possède une puissante attaque magique. *
+*                                                                                                     *
+* A vous de choisir votre combattant...                                                               *
+*******************************************************************************************************)" << "\n";
 	system("PAUSE");
 	system("cls");
 }
