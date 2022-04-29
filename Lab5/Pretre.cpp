@@ -62,7 +62,7 @@ void Pretre::choixAttaque(Personnage& p_cible) {
 	cout << "2. Sort de guérisson(cout : 5 mana)(5 - 10 de soins)." << endl;
 	cout << "Faite votre choix: ";
 
-	int saisie = saisieI();
+	int saisie = saisieI(2);
 
 	switch (saisie)
 	{
@@ -84,7 +84,6 @@ void Pretre::choixAttaque(Personnage& p_cible) {
 * Sortie : Aucune
 ***************************************************************************/
 void Pretre::guerrison() {
-	srand(time(NULL));
 	if (m_mana >= 5) {
 		m_mana -= 5;
 		int guerison = ((rand() % 10) + 5);

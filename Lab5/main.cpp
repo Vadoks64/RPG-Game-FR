@@ -13,10 +13,12 @@
 #include "Arme.h"
 #include "Druide.h"
 #include <string>
+#include <ctime>
 
 using namespace std;
 
 int main() {
+	srand(time(NULL));
 	locale::global(locale{ "" }); // Gestion des accents
 	affichageIntro(); // Affichage de l'intro
 	

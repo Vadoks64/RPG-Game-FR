@@ -12,11 +12,11 @@
 
 using namespace std;
 
-/*
+/*************************************************************
 *Entrée: Aucune
 *Sortie: Aucune
 *Rôle: Afficher le message d'introduction et les instructions
-*/
+**************************************************************/
 void affichageIntro() {
 	cout << R"(
 	  __  __ _____ _     _____ _____    ___        
@@ -48,12 +48,12 @@ void affichageIntro() {
 	system("cls");
 }
 
-/*
+/**********************************************************************
 *Entrée: Aucune
 *Sortie: L'entrée saisie par l'utilisateur
 *Rôle: Obtenir la saisie du joueur ainsi que vérifier l'entrée
-*/
-int saisieI() {
+***********************************************************************/
+int saisieI(int nbInputs) {
 	int saisie(0);
 	bool valide(false);
 
@@ -65,15 +65,20 @@ int saisieI() {
 			cout << "Erreur! Veuillez entrer un nombre valide!" << endl;
 			valide = false;
 		}
-		else if (saisie == 1 || saisie == 2 || saisie == 3) {
+		else if (saisie <= nbInputs) {
 			valide = true;
 		}
 
 		else {
 			valide = false;
+			cout << "Erreur! Veuillez entrer un nombre valide!" << endl;
 		}
 
 	}
 
 	return saisie;
+}
+
+void creePersonnage() {
+
 }

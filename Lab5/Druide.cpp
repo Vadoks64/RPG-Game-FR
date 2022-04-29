@@ -52,7 +52,6 @@ Druide::~Druide() { // Destructeur
 * Sortie : Aucune
 ***************************************************************************/
 void Druide::attaqueCeleste(Personnage& p_cible) { 
-	srand(time(NULL));
 	int degats = ((rand() % 25) + 5);
 	p_cible.recevoirDegats(degats);
 	cout << "Vous avez fait " << degats << " points de dégâts" << endl;
@@ -73,7 +72,7 @@ void Druide::choixAttaque(Personnage& p_cible) {
 	cout << "3. Utiliser l'attaque Célèste (coût: 10)(5-25 dégâts)" << endl;
 	cout << "Faite votre choix: ";
 
-	int saisie = saisieI();
+	int saisie = saisieI(3);
 
 	switch (saisie)
 	{

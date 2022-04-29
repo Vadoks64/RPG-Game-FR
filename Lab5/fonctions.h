@@ -9,4 +9,5 @@
 #pragma once
 
 void affichageIntro();
-int saisieI();
+int saisieI(int nbInputs);
+void creePersonnage();
