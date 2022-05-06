@@ -20,6 +20,14 @@
 #include <cstdlib>
 #include <Windows.h>
 
+// Definition des couleurs de texte
+const int BLANC = 15;
+const int BLEU = 9;
+const int MAUVE = 13;
+const int BLEU_P = 11;
+const int VERT = 10;
+const int JAUNE = 14;
+
 using namespace std;
 
 Pretre::Pretre() : Personnage(), m_mana(15), m_vieMax(70){ // Constructeur par Défaiut
@@ -46,29 +54,28 @@ Pretre::~Pretre() { // Destructeur
 void Pretre::affichageFormatee() const{
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 	cout << "Nom: ";
-	SetConsoleTextAttribute(hConsole, 13);
+	SetConsoleTextAttribute(hConsole, MAUVE);
 	cout << Personnage::m_nom << endl;
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 	cout << "Classe: ";
-	SetConsoleTextAttribute(hConsole, 14);
+	SetConsoleTextAttribute(hConsole, JAUNE);
 	cout << m_classe << endl;
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 	cout << "Points de vie: ";
-	SetConsoleTextAttribute(hConsole, 10);
+	SetConsoleTextAttribute(hConsole, VERT);
 	cout << m_vie << endl;
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 	cout << "Arme: ";
-	SetConsoleTextAttribute(hConsole, 11);
+	SetConsoleTextAttribute(hConsole, BLEU_P);
 	cout << m_arme->getNom();
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 	cout << " (Dégats : " << m_arme->getDegatMin() << "-" << m_arme->getDegatMax() << ")" << endl;
-	SetConsoleTextAttribute(hConsole, 15);
 	cout << "Mana restante: ";
-	SetConsoleTextAttribute(hConsole, 9);
+	SetConsoleTextAttribute(hConsole, BLEU);
 	cout << m_mana << "\n" << endl;
-	SetConsoleTextAttribute(hConsole, 15);
+	SetConsoleTextAttribute(hConsole, BLANC);
 }
 
 /**************************************************************************
@@ -76,7 +83,7 @@ void Pretre::affichageFormatee() const{
 * Entrée 1 : Cible du joueur
 * Sortie : Aucune
 ***************************************************************************/
-void Pretre::choixAttaque(Personnage& p_cible) {
+void Pretre::choixAttaque(Personnage*& p_cible) {
 	cout << "*************************************************************************" << endl;
 	cout << "Tour de: " << Personnage::m_nom << "\n" << endl;
 	cout << "Choississez votre attaque :" << endl;
@@ -108,7 +115,7 @@ void Pretre::choixAttaque(Personnage& p_cible) {
 void Pretre::guerrison() {
 	if (m_mana >= 5) {
 		m_mana -= 5;
-		int guerison = ((rand() % 10) + 5);
+		int guerison = ((rand() % 5) + 6);
 		if (m_vie + guerison >= m_vieMax) {
 			guerison = (m_vieMax - m_vie);
 		}

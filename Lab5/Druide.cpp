@@ -51,11 +51,19 @@ Druide::~Druide() { // Destructeur
 * Entrée 1 : Cible du joueur 
 * Sortie : Aucune
 ***************************************************************************/
-void Druide::attaqueCeleste(Personnage& p_cible) { 
-	int degats = ((rand() % 25) + 5);
-	p_cible.recevoirDegats(degats);
-	cout << "Vous avez fait " << degats << " points de dégâts" << endl;
-	m_mana -= 10;
+void Druide::attaqueCeleste(Personnage*& p_cible) { 
+	if (m_mana >= 10) {
+		int degats = ((rand() % 20) + 6);
+		p_cible->recevoirDegats(degats);
+		cout << "Vous avez fait " << degats << " points de dégâts" << endl;
+		m_mana -= 10;
+	}
+
+	else
+	{
+		cout << "Vous n'avez pas assez de mana, vous perdez votre tour!" << endl;
+	}
+	
 }
 
 /**************************************************************************
@@ -63,7 +71,7 @@ void Druide::attaqueCeleste(Personnage& p_cible) {
 * Entrée 1 : Cible du joueur
 * Sortie : Aucune
 ***************************************************************************/
-void Druide::choixAttaque(Personnage& p_cible) {
+void Druide::choixAttaque(Personnage*& p_cible) {
 	cout << "*************************************************************************" << endl;
 	cout << "Tour de: " << Personnage::m_nom << "\n" << endl;
 	cout << "Choississez votre attaque :" << endl;

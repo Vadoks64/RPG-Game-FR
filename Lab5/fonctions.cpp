@@ -69,13 +69,14 @@ int saisieI(int nbInputs) {
 			cout << "Erreur! Veuillez entrer un nombre valide!" << endl;
 			valide = false;
 		}
-		else if (saisie <= nbInputs) {
+		else if (saisie <= nbInputs && saisie > 0) {
 			valide = true;
 		}
 
 		else {
 			valide = false;
-			cout << "Erreur! Veuillez entrer un nombre valide!" << endl;
+			cout << "Erreur! Veuillez entrer une option valide!" << endl;
+			cout << "Resaisissez votre choix: ";
 		}
 
 	}
@@ -94,6 +95,10 @@ Personnage* creePersonnage(int i) {
 	cin >> nom;
 	
 	do{
+		cout << "Choix de votre classe:" << endl;
+		cout << "	1. Guerrier" << endl;
+		cout << "	2. Prêtre" << endl;
+		cout << "	3. Druide" << endl;
 		cout << "Choisissez votre classe:";
 		cin >> choix;
 		if (choix == "1") {
@@ -112,11 +117,10 @@ Personnage* creePersonnage(int i) {
 		}
 
 		else {
-			cout << "Erreur! Veuillez saisir un choix Valide!" << endl;
+			cout << "Erreur! " << choix << " n'est pas un choix valide!" << endl;
 			estValide = false;
 		}
 	} while (!estValide);
-	
-	system("cls");
+
 	return joueur;
 }

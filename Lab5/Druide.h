@@ -28,8 +28,8 @@ class Druide : public Pretre{
 		Druide(std::string nom);
 		~Druide();
 
-		virtual void choixAttaque(Personnage& p_cible);
-		void attaqueCeleste(Personnage& p_cible);
+		virtual void choixAttaque(Personnage*& p_cible);
+		void attaqueCeleste(Personnage*& p_cible);
 };
 
 

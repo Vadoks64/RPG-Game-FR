@@ -58,9 +58,8 @@ Sortie: Le dégât que l'arme va infliger
 Rôle: Définir aléatoirement le dégât de l'arme lors d'une attaque
 */
 int Arme::degatAttaque() const{
-	srand(time(NULL));
 	int degat(0);
-	degat = ((rand() % m_degatMax) + m_degatMin);
+	degat = (rand() % ((m_degatMax - m_degatMin)+ 1) + m_degatMin);
 	return degat;
 }
 

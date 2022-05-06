@@ -32,7 +32,7 @@ class Pretre : public Personnage {
 		~Pretre();
 
 		void guerrison();
-		virtual void choixAttaque(Personnage& p_cible);
+		virtual void choixAttaque(Personnage*& p_cible);
 		virtual void affichageFormatee() const;
 	protected:
 		int m_mana;

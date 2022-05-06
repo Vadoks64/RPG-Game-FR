@@ -32,8 +32,9 @@ public:
 
 	virtual void recevoirDegats(int degats);
 	virtual bool estVivant();
-	virtual void attaqueArme(Personnage& p_cible);
+	virtual void attaqueArme(Personnage*& p_cible);
 	virtual void affichageFormatee() const = 0; 
+	virtual void choixAttaque(Personnage*& p_cible) = 0;
 	virtual int getVie();
 
 protected:

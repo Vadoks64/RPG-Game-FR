@@ -72,17 +72,12 @@ Entrée: Une cible
 Sortie: Aucune
 Rôle: Infliger du dégât à l'adversaire
 */
-void Personnage::attaqueArme(Personnage& p_cible) {
+void Personnage::attaqueArme(Personnage*& p_cible) {
 	int degats = m_arme->degatAttaque();
-	p_cible.recevoirDegats(degats);
+	p_cible->recevoirDegats(degats);
 	cout << "Vous avez fait " << degats << " points de dégats à votre adversaire" << endl;
 }
 
 
-/*
-Entrée: Aucune
-Sortie: Aucune
-Rôle: Afficher les informations du personnage
-*/
-void Personnage::affichageFormatee() const {}
+
 
