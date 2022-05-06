@@ -10,4 +10,4 @@
 
 void affichageIntro();
 int saisieI(int nbInputs);
-void creePersonnage();
+Personnage* creePersonnage(int i);

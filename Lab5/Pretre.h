@@ -32,8 +32,8 @@ class Pretre : public Personnage {
 		~Pretre();
 
 		void guerrison();
-		void choixAttaque(Personnage& p_cible);
-		std::string affichageFormatee() const;
+		virtual void choixAttaque(Personnage& p_cible);
+		virtual void affichageFormatee() const;
 	protected:
 		int m_mana;
 		int m_vieMax;

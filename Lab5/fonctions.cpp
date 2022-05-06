@@ -9,6 +9,10 @@
 
 
 #include <iostream>
+#include "Personnage.h"
+#include "Pretre.h"
+#include "Druide.h"
+#include <vector>
 
 using namespace std;
 
@@ -19,15 +23,15 @@ using namespace std;
 **************************************************************/
 void affichageIntro() {
 	cout << R"(
-	  __  __ _____ _     _____ _____    ___        
-	 |  \/  | ____| |   | ____| ____|  ( _ )       
-	 | |\/| |  _| | |   |  _| |  _|    / _ \/\     
-	 | |  | | |___| |___| |___| |___  | (_>  <     
-	 |_|  |_|_____|_____|_____|_____|__\___/\/   __
-		 / ___| / _ \|  _ \ / ___| ____|  _ \ \ / /
-		 \___ \| | | | |_) | |   |  _| | |_) \ V / 
-		  ___) | |_| |  _ <| |___| |___|  _ < | |  
-		 |____/ \___/|_| \_\\____|_____|_| \_\|_|  
+				  __  __ _____ _     _____ _____    ___        
+				 |  \/  | ____| |   | ____| ____|  ( _ )       
+				 | |\/| |  _| | |   |  _| |  _|    / _ \/\     
+				 | |  | | |___| |___| |___| |___  | (_>  <     
+				 |_|  |_|_____|_____|_____|_____|__\___/\/   __
+					 / ___| / _ \|  _ \ / ___| ____|  _ \ \ / /
+					 \___ \| | | | |_) | |   |  _| | |_) \ V / 
+					  ___) | |_| |  _ <| |___| |___|  _ < | |  
+					 |____/ \___/|_| \_\\____|_____|_| \_\|_|  
                                                
                                                )"
 		<< "\n";
@@ -79,6 +83,40 @@ int saisieI(int nbInputs) {
 	return saisie;
 }
 
-void creePersonnage() {
+Personnage* creePersonnage(int i) {
+	Personnage* joueur(0);
+	string choix;
+	string nom;
+	bool estValide(false);
 
+	cout << "Joueur " << (i+1) << endl;
+	cout << "Choisissez votre nom:";
+	cin >> nom;
+	
+	do{
+		cout << "Choisissez votre classe:";
+		cin >> choix;
+		if (choix == "1") {
+			//joueur = new Guerrier();
+			estValide = true;
+		}
+
+		else if (choix == "2") {
+			joueur = new Pretre(nom);
+			estValide = true;
+		}
+
+		else if (choix == "3") {
+			joueur = new Druide(nom);
+			estValide = true;
+		}
+
+		else {
+			cout << "Erreur! Veuillez saisir un choix Valide!" << endl;
+			estValide = false;
+		}
+	} while (!estValide);
+	
+	system("cls");
+	return joueur;
 }

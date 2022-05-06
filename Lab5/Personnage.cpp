@@ -2,7 +2,7 @@
 * fichier : Personnage.cpp
 * Rôle : Définition de la classe personnage
 * Auteur : Élie Charles Désaulniers
-* Version : 1.0
+* Version : 1.2
 * Date : 27/04/2022
 *************************************************************/
 
@@ -15,6 +15,7 @@
 #include "Arme.h"
 #include "Personnage.h"
 #include <cstdlib>
+#include <Windows.h>
 
 using namespace std;
 
@@ -83,15 +84,5 @@ Entrée: Aucune
 Sortie: Aucune
 Rôle: Afficher les informations du personnage
 */
-string Personnage::affichageFormatee() const{
-	ostringstream os;
-
-	os << "Nom: " << m_nom << endl;
-	os << "Classe: " << m_classe << endl;
-	os << "Points de vie: " << m_vie << endl;
-	os << "Arme: " << m_arme->getNom() << " (Dégats : " << m_arme->getDegatMin() << "-" << m_arme->getDegatMax() << ")" << endl;
-
-
-	return os.str();
-}
+void Personnage::affichageFormatee() const {}
 

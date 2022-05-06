@@ -18,6 +18,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <Windows.h>
 
 using namespace std;
 
@@ -42,11 +43,32 @@ Pretre::~Pretre() { // Destructeur
 * Entrée 1 : Aucune
 * Sortie : Aucune
 ***************************************************************************/
-string Pretre::affichageFormatee() const{
-	ostringstream os;
-	os << Personnage::affichageFormatee();
-	os << "Mana restante: " << m_mana;
-	return os.str();
+void Pretre::affichageFormatee() const{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "Nom: ";
+	SetConsoleTextAttribute(hConsole, 13);
+	cout << Personnage::m_nom << endl;
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "Classe: ";
+	SetConsoleTextAttribute(hConsole, 14);
+	cout << m_classe << endl;
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "Points de vie: ";
+	SetConsoleTextAttribute(hConsole, 10);
+	cout << m_vie << endl;
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "Arme: ";
+	SetConsoleTextAttribute(hConsole, 11);
+	cout << m_arme->getNom();
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << " (Dégats : " << m_arme->getDegatMin() << "-" << m_arme->getDegatMax() << ")" << endl;
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "Mana restante: ";
+	SetConsoleTextAttribute(hConsole, 9);
+	cout << m_mana << "\n" << endl;
+	SetConsoleTextAttribute(hConsole, 15);
 }
 
 /**************************************************************************

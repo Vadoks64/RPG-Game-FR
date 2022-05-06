@@ -27,14 +27,14 @@ class Personnage{
 public:
 	Personnage();
 	Personnage(std::string nom);
-	~Personnage();
+	virtual ~Personnage();
 
 
-	void recevoirDegats(int degats);
-	bool estVivant();
-	void attaqueArme(Personnage& p_cible);
-	std::string affichageFormatee() const;
-	int getVie();
+	virtual void recevoirDegats(int degats);
+	virtual bool estVivant();
+	virtual void attaqueArme(Personnage& p_cible);
+	virtual void affichageFormatee() const = 0; 
+	virtual int getVie();
 
 protected:
 	int m_vie;
