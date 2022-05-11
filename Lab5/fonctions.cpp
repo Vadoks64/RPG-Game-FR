@@ -12,6 +12,7 @@
 #include "Personnage.h"
 #include "Pretre.h"
 #include "Druide.h"
+#include "Guerrier.h"
 #include <vector>
 
 using namespace std;
@@ -102,7 +103,7 @@ Personnage* creePersonnage(int i) {
 		cout << "Choisissez votre classe:";
 		cin >> choix;
 		if (choix == "1") {
-			//joueur = new Guerrier();
+			joueur = new Guerrier(nom);
 			estValide = true;
 		}
 
@@ -123,4 +124,33 @@ Personnage* creePersonnage(int i) {
 	} while (!estValide);
 
 	return joueur;
+}
+
+void tourJoueur(vector<Personnage*>& listeJoueurs, int tourJoueur) {
+	int ennemi(0);
+
+	if (tourJoueur == 1) {
+		ennemi = 0;
+	}
+	else
+	{
+		ennemi = 1;
+	}
+
+	listeJoueurs[tourJoueur]->choixAttaque(listeJoueurs[ennemi]);
+
+	system("PAUSE");
+	system("cls");
+	listeJoueurs[0]->affichageFormatee();
+	listeJoueurs[1]->affichageFormatee();
+	system("PAUSE");
+}
+
+int determinerGagnant(std::vector<Personnage*>& listeJoueurs) {
+	for (int i = 0; i < listeJoueurs.size(); i++)
+	{
+		if (listeJoueurs[i]->estVivant()) {
+			return i;
+		}
+	}
 }

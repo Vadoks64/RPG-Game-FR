@@ -35,7 +35,8 @@ public:
 	virtual void attaqueArme(Personnage*& p_cible);
 	virtual void affichageFormatee() const = 0; 
 	virtual void choixAttaque(Personnage*& p_cible) = 0;
-	virtual int getVie();
+	virtual int getVie() const;
+	virtual std::string getNom() const;
 
 protected:
 	int m_vie;

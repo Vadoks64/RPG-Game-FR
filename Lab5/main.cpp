@@ -26,57 +26,48 @@ int main() {
 	affichageIntro(); // Affichage de l'intro
 
 	/********** SÉLECTION DES JOUEURS****************/
-	vector<Personnage*> listeJoueur;
+	vector<Personnage*> listeJoueurs;
 	for (int i = 0; i < 2; i++)
 	{
-		listeJoueur.push_back(creePersonnage(i));
-		listeJoueur[i]->affichageFormatee();
+		listeJoueurs.push_back(creePersonnage(i));
+		listeJoueurs[i]->affichageFormatee();
 		system("PAUSE");
 		system("cls");
 	}
 	
 	/*************FIN DE LA SELECTION*************/
-	bool tourp1 = true;
+	int tourJ = 0;
 	
 	/************* TOURS DES JOUEURS ***********/
 	do
 	{
-		listeJoueur[0]->affichageFormatee();
-		listeJoueur[1]->affichageFormatee();
-		if (tourp1) {
-			listeJoueur[0]->choixAttaque(listeJoueur[1]);
-			tourp1 = false;
-			
-			system("PAUSE");
-			system("cls");
-			listeJoueur[0]->affichageFormatee();
-			listeJoueur[1]->affichageFormatee();
-			system("PAUSE");
+		listeJoueurs[0]->affichageFormatee();
+		listeJoueurs[1]->affichageFormatee();
+		if (tourJ == 0) {
+			tourJoueur(listeJoueurs, tourJ);
+			tourJ = 1;
 		}
 		else {
-			listeJoueur[1]->choixAttaque(listeJoueur[0]);
-			tourp1 = true;
-			
-			system("PAUSE");
-			system("cls");
-			listeJoueur[0]->affichageFormatee();
-			listeJoueur[1]->affichageFormatee();
-			system("PAUSE");
+			tourJoueur(listeJoueurs, tourJ);
+			tourJ = 0;
 		}
 		system("cls");
-	} while (listeJoueur[0]->estVivant() && listeJoueur[1]->estVivant());
+	} while (listeJoueurs[0]->estVivant() && listeJoueurs[1]->estVivant());
 	/************* FIN DES TOURS ***********/
 	
 
 	/************* DÉTERMINATION DU GAGNANT *********************/
-	
+	Personnage* gagnant = listeJoueurs[determinerGagnant(listeJoueurs)];
+	cout << gagnant->getNom() << " a gagné !!!" << endl;
+	cout << "Il lui restait " << gagnant->getVie() << " points de vie!" << endl;
+	cout << "Bien joué !" << endl;
 	/************* FIN DE LA DÉTERMINATION DU GAGNANT ***********/
 
 	/************* SUPRESSION DES JOUEURS  *********************/
-	for (int i = 0; i < listeJoueur.size(); i++)
+	for (int i = 0; i < listeJoueurs.size(); i++)
 	{
-		delete listeJoueur[i];
-		listeJoueur[i] = 0;
+		delete listeJoueurs[i];
+		listeJoueurs[i] = 0;
 	}
 	/************* FIN DESUPRESSION DES JOUEURS ***************/
 	system("PAUSE");

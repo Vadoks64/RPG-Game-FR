@@ -30,13 +30,15 @@ const int JAUNE = 14;
 
 using namespace std;
 
-Pretre::Pretre() : Personnage(), m_mana(15), m_vieMax(70){ // Constructeur par Défaiut
+const int vieMax(70);
+
+Pretre::Pretre() : Personnage(), m_mana(15){ // Constructeur par Défaiut
 	m_vie = 70;
 	m_classe = "Prêtre";
 	m_arme->changerArme("Marteau", 2, 12);
 }
 
-Pretre::Pretre(string nom) : Personnage(nom), m_mana(15), m_vieMax(70) { // Constructeur Surchargé
+Pretre::Pretre(string nom) : Personnage(nom), m_mana(15){ // Constructeur Surchargé
 	m_vie = 70;
 	m_classe = "Prêtre";
 	m_arme->changerArme("Marteau", 2, 12);
@@ -116,8 +118,8 @@ void Pretre::guerrison() {
 	if (m_mana >= 5) {
 		m_mana -= 5;
 		int guerison = ((rand() % 5) + 6);
-		if (m_vie + guerison >= m_vieMax) {
-			guerison = (m_vieMax - m_vie);
+		if (m_vie + guerison >= vieMax) {
+			guerison = (vieMax - m_vie);
 		}
 		m_vie += guerison;
 

@@ -126,6 +126,7 @@
     <ClCompile Include="Arme.cpp" />
     <ClCompile Include="Druide.cpp" />
     <ClCompile Include="fonctions.cpp" />
+    <ClCompile Include="Guerrier.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Personnage.cpp" />
     <ClCompile Include="Pretre.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="Arme.h" />
     <ClInclude Include="Druide.h" />
     <ClInclude Include="fonctions.h" />
+    <ClInclude Include="Guerrier.h" />
     <ClInclude Include="Personnage.h" />
     <ClInclude Include="Pretre.h" />
   </ItemGroup>

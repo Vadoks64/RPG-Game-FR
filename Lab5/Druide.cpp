@@ -24,11 +24,10 @@
 
 
 using namespace std;
-
+const int vieMax(60);
 
 Druide::Druide() : Pretre() { // Constructeur par Défaut
 	m_vie = 60;
-	m_vieMax = 60;
 	m_classe = "Druide";
 	m_mana = 30;
 	m_arme->changerArme("Bâton", 1, 10);
@@ -36,7 +35,6 @@ Druide::Druide() : Pretre() { // Constructeur par Défaut
 
 Druide::Druide(string nom) : Pretre(nom) { // Constructeur surchargé
 	m_vie = 60;
-	m_vieMax = 60;
 	m_classe = "Druide";
 	m_mana = 30;
 	m_arme->changerArme("Bâton", 1, 10);

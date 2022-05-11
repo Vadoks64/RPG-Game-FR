@@ -36,6 +36,5 @@ class Pretre : public Personnage {
 		virtual void affichageFormatee() const;
 	protected:
 		int m_mana;
-		int m_vieMax;
 		std::string m_nom;
 };

@@ -52,8 +52,12 @@ Entrée: Aucune
 Sortie: Vie restante du personnage
 Rôle: Accès à la vie du personnage
 */
-int Personnage::getVie() {
+int Personnage::getVie() const{
 	return m_vie;
+}
+
+string Personnage::getNom() const {
+	return m_nom;
 }
 
 
